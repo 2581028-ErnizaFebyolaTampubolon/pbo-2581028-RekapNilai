@@ -13,6 +13,7 @@ public class RekapNilai {
         double total = 0;
         int nilai;
 
+        // do-while lebih pas karena nilai pertama memang harus diminta dulu sebelum ada yang bisa dinilai.
         do {
             System.out.print("Nilai ke-" + nomor + ": ");
             nilai = scanner.nextInt();
@@ -21,46 +22,8 @@ public class RekapNilai {
                 break;
             }
 
-            if (nilai < 0 || nilai > 100) {
-                System.out.println("ditolak - nilai harus 0..100");
-                continue;
-            }
-
-            char grade;
-            if (nilai >= 90) {
-                grade = 'A';
-            } else if (nilai >= 80) {
-                grade = 'B';
-            } else if (nilai >= 70) {
-                grade = 'C';
-            } else if (nilai >= 60) {
-                grade = 'D';
-            } else {
-                grade = 'E';
-            }
-
-            String keterangan = switch (grade) {
-                case 'A' -> "Sangat Baik";
-                case 'B' -> "Baik";
-                case 'C' -> "Cukup";
-                case 'D' -> "Kurang";
-                default -> "Tidak Lulus";
-            };
-
-            System.out.println("Grade " + grade + " - " + keterangan);
-
-            total += nilai;
-            jumlahSah++;
             nomor++;
         } while (nilai != SELESAI);
-
-        double rata = jumlahSah > 0 ? total / jumlahSah : 0.0;
-        String status = rata >= 60 ? "LULUS" : "TIDAK LULUS";
-
-        System.out.println();
-        System.out.println("Nilai sah   : " + jumlahSah);
-        System.out.println("Rata-rata   : " + rata);
-        System.out.println("Status      : " + status);
 
         scanner.close();
     }
