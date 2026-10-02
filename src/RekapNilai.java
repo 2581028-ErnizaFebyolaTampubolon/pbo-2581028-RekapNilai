@@ -57,6 +57,11 @@ public class RekapNilai {
         double rata = jumlahSah > 0 ? total / jumlahSah : 0.0;
         String status = rata >= 60 ? "LULUS" : "TIDAK LULUS";
 
+        System.out.println();
+        System.out.println("Nilai sah   : " + jumlahSah);
+        System.out.println("Rata-rata   : " + rata);
+        System.out.println("Status      : " + status);
+
         scanner.close();
     }
 }
